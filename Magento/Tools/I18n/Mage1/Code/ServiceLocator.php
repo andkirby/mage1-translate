@@ -12,7 +12,7 @@ class ServiceLocator extends Mage2\ServiceLocator
     /**
      * Domain abstract factory
      *
-     * @var \Magento\Tools\I18n\Mage1\Code\Factory
+     * @var \Magento\Tools\I18n\Code\Factory
      */
     protected static $_factory;
 
