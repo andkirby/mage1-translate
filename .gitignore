@@ -1,0 +1,11 @@
+*
+!.gitignore
+.idea/
+!Magento
+Magento/*
+!Magento/Tools
+Magento/Tools/*
+!Magento/Tools/I18n
+Magento/Tools/I18n/*
+!Magento/Tools/I18n/Mage1
+!Magento/Tools/I18n/generator-mage1.php
