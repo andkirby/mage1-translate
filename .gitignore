@@ -1,6 +1,11 @@
-*
-!.gitignore
 .idea/
+layout/
+xml/
+atlassian-ide-plugin.xml
+bootstrap.php
+tests.php
+
+# Project files
 !Magento
 Magento/*
 !Magento/Tools
@@ -8,4 +13,5 @@ Magento/Tools/*
 !Magento/Tools/I18n
 Magento/Tools/I18n/*
 !Magento/Tools/I18n/Mage1
+!Magento/Tools/I18n/Mage1/*
 !Magento/Tools/I18n/generator-mage1.php
