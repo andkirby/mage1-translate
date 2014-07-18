@@ -98,4 +98,20 @@ class ServiceLocator extends Mage2\ServiceLocator
         }
         return self::$_context;
     }
+
+    /**
+     * Get pack generator for Magento 1
+     *
+     * @return \Magento\Tools\I18n\Code\Pack\Generator
+     */
+    public static function getPackGenerator()
+    {
+        if (null === self::$_packGenerator) {
+            $dictionaryLoader = new Mage2\Dictionary\Loader\File\Csv(self::_getFactory());
+            $packWriter = new Mage1\Pack\Writer\File\Csv(self::_getContext(), $dictionaryLoader, self::_getFactory());
+
+            self::$_packGenerator = new Mage2\Pack\Generator($dictionaryLoader, $packWriter, self::_getFactory());
+        }
+        return self::$_packGenerator;
+    }
 }

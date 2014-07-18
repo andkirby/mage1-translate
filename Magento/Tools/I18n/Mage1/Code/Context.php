@@ -8,6 +8,11 @@ use Magento\Tools\I18n\Code as Mage2;
 class Context extends Mage2\Context
 {
     /**
+     * Locale directory for Magento 1
+     */
+    const LOCALE_DIRECTORY = 'locale';
+
+    /**
      * Get context from file path in array(<context type>, <context value>) format
      * - for module: <Namespace>_<module name>
      * - for theme: <area>/<theme name>
@@ -35,5 +40,67 @@ class Context extends Mage2\Context
             throw new \InvalidArgumentException(sprintf('Invalid path given: "%s".', $path));
         }
         return array($type, $value);
+    }
+
+    /**
+     * Get paths by context for Magento 1
+     *
+     * @param string $type
+     * @param array $value
+     * @return string
+     * @throws \InvalidArgumentException
+     */
+    public function buildPathToLocaleDirectoryByContext($type, $value)
+    {
+        switch ($type) {
+            case self::CONTEXT_TYPE_MODULE:
+                $path = $this->_getGlobalLocalePath();
+                break;
+
+            case self::CONTEXT_TYPE_THEME:
+                $path = $this->_getThemeLocalePath($value);
+                break;
+
+            case self::CONTEXT_TYPE_PUB:
+                throw new \InvalidArgumentException(sprintf('Context type "%s" is not supported.', $type));
+
+            default:
+                throw new \InvalidArgumentException(sprintf('Invalid context given: "%s".', $type));
+        }
+        return $path;
+    }
+
+    /**
+     * Get project relative theme path
+     *
+     * @param string $value
+     * @return string
+     */
+    protected function _getThemeLocalePath($value)
+    {
+        return 'app/design/' . $this->_getThemePath($value) . '/' . self::LOCALE_DIRECTORY . '/';
+    }
+
+    /**
+     * Get relative theme path
+     *
+     * @param string $value
+     * @return string
+     */
+    protected function _getThemePath($value)
+    {
+        $arr = explode('/', $value);
+        array_pop($arr);
+        return trim(implode('/', $arr), '/');
+    }
+
+    /**
+     * Get global locale path in Magento 1
+     *
+     * @return string
+     */
+    protected function _getGlobalLocalePath()
+    {
+        return 'app/' . self::LOCALE_DIRECTORY . '/';
     }
 }
