@@ -53,7 +53,7 @@ class ServiceLocator extends Mage2\ServiceLocator
             $adapters = array(
                 'php' => new Mage2\Parser\Adapter\Php($phraseCollector),
                 'js' => new Mage2\Parser\Adapter\Js(),
-                'xml' => new Mage2\Parser\Adapter\Xml()
+                'xml' => new Mage1\Parser\Adapter\Xml()
             );
 
             $parser = new Mage2\Parser\Parser($filesCollector, self::_getFactory());
