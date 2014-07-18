@@ -80,7 +80,7 @@ class ServiceLocator extends Mage2\ServiceLocator
     protected static function _getFactory()
     {
         if (null === self::$_factory) {
-            self::$_factory = new Mage2\Factory();
+            self::$_factory = new Mage1\Factory();
         }
         return self::$_factory;
     }
