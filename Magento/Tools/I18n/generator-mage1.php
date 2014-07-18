@@ -19,7 +19,7 @@ try {
     $directory      = $console->getOption('directory') ?: null;
     $package        = $console->getOption('package') ?: 'enterprise';
     $theme          = $console->getOption('theme') ?: null;
-    $codePools       = $console->getOption('codepool') ?: 'community|local';
+    $codePools      = $console->getOption('codepool') ?: 'community|local';
     $outputFilename = $console->getOption('output') ?: null;
     $isMagento = in_array($console->getOption('magento'), array('y', 'yes', 'Y', 'Yes', 'YES'));
 
