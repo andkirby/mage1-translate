@@ -14,4 +14,4 @@ Magento/Tools/*
 Magento/Tools/I18n/*
 !Magento/Tools/I18n/Mage1
 !Magento/Tools/I18n/Mage1/*
-!Magento/Tools/I18n/generator-mage1.php
+!Magento/Tools/I18n/*-mage1.php
